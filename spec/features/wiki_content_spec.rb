@@ -20,7 +20,7 @@ feature 'Wiki content', js: true do
         background do
           visit '/projects/test/wiki'
           select_format('#pwfmt-select-content_text', 'markdown')
-          find('#content_text').set raw_text
+          find('#content_text').set markdown_raw_text
           find('input[name=commit]').click
         end
         scenario 'view as markdown' do
@@ -37,7 +37,7 @@ feature 'Wiki content', js: true do
             visit '/projects/test/wiki'
             find("a[accesskey='e']").click
             select_format('#pwfmt-select-content_text', 'textile')
-            find('#content_text').set "#{raw_text}\n#{raw_text}"
+            find('#content_text').set textile_raw_text
             find('input[name=commit]').click
           end
           scenario 'view as textile' do
@@ -59,7 +59,7 @@ feature 'Wiki content', js: true do
         background do
           visit '/projects/test/wiki'
           select_format('#pwfmt-select-content_text', 'textile')
-          find('#content_text').set raw_text
+          find('#content_text').set textile_raw_text
           find('input[name=commit]').click
         end
         scenario 'view as textile' do
@@ -76,7 +76,7 @@ feature 'Wiki content', js: true do
             visit '/projects/test/wiki'
             find("a[accesskey='e']").click
             select_format('#pwfmt-select-content_text', 'markdown')
-            find('#content_text').set "#{raw_text}\n#{raw_text}"
+            find('#content_text').set markdown_raw_text
             find('input[name=commit]').click
           end
           scenario 'view as markdown' do

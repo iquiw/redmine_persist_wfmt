@@ -1,15 +1,19 @@
 module Features
   module Helpers
-    def raw_text
-      '*foobarbaz*'
+    def markdown_raw_text
+      '*markdown text*'
+    end
+
+    def textile_raw_text
+      '*textile text*'
     end
 
     def markdown_text
-      '<em>foobarbaz</em>'
+      '<em>markdown text</em>'
     end
 
     def textile_text
-      '<strong>foobarbaz</strong>'
+      '<strong>textile text</strong>'
     end
 
     def load_default_data(lang = 'en')

@@ -23,7 +23,7 @@ feature 'Message content', js: true do
           visit new_board_message_path(board)
           select_format('#pwfmt-select-message_content', 'markdown')
           find('#message_subject').set 'test'
-          find('#message_content').set raw_text
+          find('#message_content').set markdown_raw_text
           find('input[name=commit]').click
         end
         scenario 'view as markdown' do
@@ -41,6 +41,7 @@ feature 'Message content', js: true do
             board = Board.all.first
             visit "/boards/#{board.id}/topics/#{board.messages.first.id}/edit"
             select_format('#pwfmt-select-message_content', 'textile')
+            find('#message_content').set textile_raw_text
             find('input[name=commit]').click
           end
           scenario 'view as textile' do
@@ -61,7 +62,7 @@ feature 'Message content', js: true do
           visit new_board_message_path(board)
           select_format('#pwfmt-select-message_content', 'textile')
           find('#message_subject').set 'test'
-          find('#message_content').set raw_text
+          find('#message_content').set textile_raw_text
           find('input[name=commit]').click
         end
         scenario 'view as textile' do
@@ -79,6 +80,7 @@ feature 'Message content', js: true do
             board = Board.all.first
             visit "/boards/#{board.id}/topics/#{board.messages.first.id}/edit"
             select_format('#pwfmt-select-message_content', 'markdown')
+            find('#message_content').set markdown_raw_text
             find('input[name=commit]').click
           end
           scenario 'view as markdown' do
@@ -107,7 +109,7 @@ feature 'Message content', js: true do
           find('a[href="#"]').click
           select_format('#pwfmt-select-message_content', 'markdown')
           find('#message_subject').set 'test'
-          find('#message_content').set raw_text
+          find('#message_content').set markdown_raw_text
           find('input[name=commit]').click
 
           # textile reply
@@ -115,7 +117,7 @@ feature 'Message content', js: true do
           find('a[href="#"]').click
           select_format('#pwfmt-select-message_content', 'textile')
           find('#message_subject').set 'test'
-          find('#message_content').set raw_text
+          find('#message_content').set textile_raw_text
           find('input[name=commit]').click
         end
         scenario 'view as markdown and view as textile in replies' do

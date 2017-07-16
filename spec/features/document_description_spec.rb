@@ -21,7 +21,7 @@ feature 'Document description', js: true do
           visit new_project_document_path(project_id: 'test')
           select_format('#pwfmt-select-document_description', 'markdown')
           find('#document_title').set 'test'
-          find('#document_description').set raw_text
+          find('#document_description').set markdown_raw_text
           find('input[name=commit]').click
         end
         scenario 'view as markdown' do
@@ -39,6 +39,7 @@ feature 'Document description', js: true do
             document = Document.all.first
             visit edit_document_path(document)
             select_format('#pwfmt-select-document_description', 'textile')
+            find('#document_description').set textile_raw_text
             find('input[name=commit]').click
           end
           scenario 'view as textile' do
@@ -58,7 +59,7 @@ feature 'Document description', js: true do
           visit new_project_document_path(project_id: 'test')
           select_format('#pwfmt-select-document_description', 'textile')
           find('#document_title').set 'test'
-          find('#document_description').set raw_text
+          find('#document_description').set textile_raw_text
           find('input[name=commit]').click
         end
         scenario 'view as textile' do
@@ -76,6 +77,7 @@ feature 'Document description', js: true do
             document = Document.all.first
             visit edit_document_path(document)
             select_format('#pwfmt-select-document_description', 'markdown')
+            find('#document_description').set markdown_raw_text
             find('input[name=commit]').click
           end
           scenario 'view as markdown' do
@@ -96,14 +98,14 @@ feature 'Document description', js: true do
           visit new_project_document_path(project_id: 'test')
           select_format('#pwfmt-select-document_description', 'markdown')
           find('#document_title').set 'test'
-          find('#document_description').set raw_text
+          find('#document_description').set markdown_raw_text
           find('input[name=commit]').click
 
           # textile
           visit new_project_document_path(project_id: 'test')
           select_format('#pwfmt-select-document_description', 'textile')
           find('#document_title').set 'test'
-          find('#document_description').set raw_text
+          find('#document_description').set textile_raw_text
           find('input[name=commit]').click
         end
         scenario 'view as markdown and view as textile in document list' do

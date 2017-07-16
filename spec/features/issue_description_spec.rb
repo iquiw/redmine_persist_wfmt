@@ -35,7 +35,7 @@ feature 'Issue description', js: true do
           visit new_project_issue_path(project_id: 'test')
           select_format('#pwfmt-select-issue_description', 'markdown')
           find('#issue_subject').set 'test'
-          find('#issue_description').set raw_text
+          find('#issue_description').set markdown_raw_text
           find('#issue-form').find('input[name=commit]').click
         end
         scenario 'view as markdown' do
@@ -55,7 +55,7 @@ feature 'Issue description', js: true do
             visit_issue(issue)
             open_issue_description_edit_area(issue)
             select_format('#pwfmt-select-issue_description', 'textile')
-            find('#issue_description').set raw_text
+            find('#issue_description').set textile_raw_text
             find('#issue-form').find('input[name=commit]').click
           end
           scenario 'view as textile' do
@@ -76,7 +76,7 @@ feature 'Issue description', js: true do
           visit new_project_issue_path(project_id: 'test')
           select_format('#pwfmt-select-issue_description', 'textile')
           find('#issue_subject').set 'test'
-          find('#issue_description').set raw_text
+          find('#issue_description').set textile_raw_text
           find('#issue-form').find('input[name=commit]').click
         end
         scenario 'view as textile' do
@@ -96,7 +96,7 @@ feature 'Issue description', js: true do
             visit_issue(issue)
             open_issue_description_edit_area(issue)
             select_format('#pwfmt-select-issue_description', 'markdown')
-            find('#issue_description').set raw_text
+            find('#issue_description').set markdown_raw_text
             find('#issue-form').find('input[name=commit]').click
           end
           scenario 'view as markdown' do

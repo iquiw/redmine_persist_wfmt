@@ -18,7 +18,7 @@ feature 'Journal notes', js: true do
             visit new_project_issue_path(project_id: 'test')
             select_format('#pwfmt-select-issue_description', issue_format)
             find('#issue_subject').set 'test'
-            find('#issue_description').set raw_text
+            find('#issue_description').set 'foobarbaz'
             find('#issue-form').find('input[name=commit]').click
             @issue = Issue.all.first
           end
@@ -32,7 +32,7 @@ feature 'Journal notes', js: true do
               visit_issue(@issue)
               all("a[href='#{edit_issue_path(@issue)}']").first.click
               select_format('#pwfmt-select-issue_notes', 'markdown')
-              find('#issue_notes').set raw_text
+              find('#issue_notes').set markdown_raw_text
               find('#issue-form').find('input[name=commit]').click
             end
             scenario 'view as markdown' do
@@ -51,7 +51,7 @@ feature 'Journal notes', js: true do
                 journal_id = @issue.journals.first.id
                 find("#journal-#{journal_id}-notes").find("a[href='#']").click
                 select_format("#pwfmt-select-journal_#{journal_id}_notes", 'textile')
-                find("#journal_#{journal_id}_notes").set raw_text
+                find("#journal_#{journal_id}_notes").set textile_raw_text
                 find("#journal-#{journal_id}-form").find('input[name=commit]').click
               end
               scenario 'view as textile' do
@@ -71,7 +71,7 @@ feature 'Journal notes', js: true do
               visit_issue(@issue)
               all("a[href='#{edit_issue_path(@issue)}']").first.click
               select_format('#pwfmt-select-issue_notes', 'textile')
-              find('#issue_notes').set raw_text
+              find('#issue_notes').set textile_raw_text
               find('#issue-form').find('input[name=commit]').click
             end
             scenario 'view as textile' do
@@ -90,7 +90,7 @@ feature 'Journal notes', js: true do
                 journal_id = @issue.journals.first.id
                 find("#journal-#{journal_id}-notes").find("a[href='#']").click
                 select_format("#pwfmt-select-journal_#{journal_id}_notes", 'markdown')
-                find("#journal_#{journal_id}_notes").set raw_text
+                find("#journal_#{journal_id}_notes").set markdown_raw_text
                 find("#journal-#{journal_id}-form").find('input[name=commit]').click
               end
               scenario 'view as markdown' do
@@ -111,14 +111,14 @@ feature 'Journal notes', js: true do
               visit_issue(@issue)
               all("a[href='#{edit_issue_path(@issue)}']").first.click
               select_format('#pwfmt-select-issue_notes', 'markdown')
-              find('#issue_notes').set raw_text
+              find('#issue_notes').set markdown_raw_text
               find('#issue-form').find('input[name=commit]').click
 
               # textile
               visit_issue(@issue)
               all("a[href='#{edit_issue_path(@issue)}']").first.click
               select_format('#pwfmt-select-issue_notes', 'textile')
-              find('#issue_notes').set raw_text
+              find('#issue_notes').set textile_raw_text
               find('#issue-form').find('input[name=commit]').click
             end
             scenario "view as markdown and view as textile in issue's histories" do
@@ -138,9 +138,9 @@ feature 'Journal notes', js: true do
               visit_issue(@issue)
               open_issue_description_edit_area(@issue)
               select_format('#pwfmt-select-issue_description', issue_format == 'markdown' ? 'textile' : 'markdown')
-              find('#issue_description').set raw_text
+              find('#issue_description').set(issue_format == 'markdown' ? textile_raw_text : markdown_raw_text)
               select_format('#pwfmt-select-issue_notes', issue_format)
-              find('#issue_notes').set raw_text
+              find('#issue_notes').set(issue_format == 'markdown' ? markdown_raw_text : textile_raw_text)
               find('#issue-form').find('input[name=commit]').click
             end
             scenario "issue description is formatted as #{issue_format == 'markdown' ? 'textile' : 'markdown'}" do

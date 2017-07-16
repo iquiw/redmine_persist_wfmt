@@ -21,7 +21,7 @@ feature 'News description', js: true do
           visit new_project_news_path(project_id: 'test')
           select_format('#pwfmt-select-news_description', 'markdown')
           find('#news_title').set 'test'
-          find('#news_description').set raw_text
+          find('#news_description').set markdown_raw_text
           find('input[name=commit]').click
         end
         scenario 'view as markdown' do
@@ -39,6 +39,7 @@ feature 'News description', js: true do
             news = News.all.first
             visit edit_news_path(news)
             select_format('#pwfmt-select-news_description', 'textile')
+            find('#news_description').set textile_raw_text
             find('input[name=commit]').click
           end
           scenario 'view as textile' do
@@ -58,7 +59,7 @@ feature 'News description', js: true do
           visit new_project_news_path(project_id: 'test')
           select_format('#pwfmt-select-news_description', 'textile')
           find('#news_title').set 'test'
-          find('#news_description').set raw_text
+          find('#news_description').set textile_raw_text
           find('input[name=commit]').click
         end
         scenario 'view as textile' do
@@ -76,6 +77,7 @@ feature 'News description', js: true do
             news = News.all.first
             visit edit_news_path(news)
             select_format('#pwfmt-select-news_description', 'markdown')
+            find('#news_description').set markdown_raw_text
             find('input[name=commit]').click
           end
           scenario 'view as markdown' do
@@ -96,14 +98,14 @@ feature 'News description', js: true do
           visit new_project_news_path(project_id: 'test')
           select_format('#pwfmt-select-news_description', 'markdown')
           find('#news_title').set 'test'
-          find('#news_description').set raw_text
+          find('#news_description').set markdown_raw_text
           find('input[name=commit]').click
 
           # textile
           visit new_project_news_path(project_id: 'test')
           select_format('#pwfmt-select-news_description', 'textile')
           find('#news_title').set 'test'
-          find('#news_description').set raw_text
+          find('#news_description').set textile_raw_text
           find('input[name=commit]').click
         end
         scenario 'view as markdown and view as textile in news list' do

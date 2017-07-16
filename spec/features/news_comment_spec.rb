@@ -22,7 +22,7 @@ feature 'News comment', js: true do
           visit_news
           find('a[href="#"]').click
           select_format('#pwfmt-select-comment_comments', 'markdown')
-          find('#comment_comments').set raw_text
+          find('#comment_comments').set markdown_raw_text
           find('input[name=commit]').click
         end
         scenario 'view as markdown' do
@@ -35,7 +35,7 @@ feature 'News comment', js: true do
           visit_news
           find('a[href="#"]').click
           select_format('#pwfmt-select-comment_comments', 'textile')
-          find('#comment_comments').set raw_text
+          find('#comment_comments').set textile_raw_text
           find('input[name=commit]').click
         end
         scenario 'view as textile' do
@@ -49,14 +49,14 @@ feature 'News comment', js: true do
           visit_news
           find('a[href="#"]').click
           select_format('#pwfmt-select-comment_comments', 'markdown')
-          find('#comment_comments').set raw_text
+          find('#comment_comments').set markdown_raw_text
           find('input[name=commit]').click
 
           # textile
           visit_news
           find('a[href="#"]').click
           select_format('#pwfmt-select-comment_comments', 'textile')
-          find('#comment_comments').set raw_text
+          find('#comment_comments').set textile_raw_text
           find('input[name=commit]').click
         end
         scenario 'view as markdown and view as textile in news#show' do

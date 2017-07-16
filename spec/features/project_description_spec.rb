@@ -20,7 +20,7 @@ feature 'Project description', js: true do
           visit new_project_path
           select_format('#pwfmt-select-project_description', 'markdown')
           find('#project_name').set 'test'
-          find('#project_description').set raw_text
+          find('#project_description').set markdown_raw_text
           find('#project_identifier').set 'test'
           find('input[name=commit]').click
         end
@@ -40,6 +40,7 @@ feature 'Project description', js: true do
           background do
             visit settings_project_path('test')
             select_format('#pwfmt-select-project_description', 'textile')
+            find('#project_description').set textile_raw_text
             find('input[name=commit]').click
           end
           scenario 'view as textile' do
@@ -61,7 +62,7 @@ feature 'Project description', js: true do
           visit new_project_path
           select_format('#pwfmt-select-project_description', 'textile')
           find('#project_name').set 'test'
-          find('#project_description').set raw_text
+          find('#project_description').set textile_raw_text
           find('#project_identifier').set 'test'
           find('input[name=commit]').click
         end
@@ -81,6 +82,7 @@ feature 'Project description', js: true do
           background do
             visit settings_project_path('test')
             select_format('#pwfmt-select-project_description', 'markdown')
+            find('#project_description').set markdown_raw_text
             find('input[name=commit]').click
           end
           scenario 'view as markdown' do
@@ -103,7 +105,7 @@ feature 'Project description', js: true do
           visit new_project_path
           select_format('#pwfmt-select-project_description', 'markdown')
           find('#project_name').set 'test1'
-          find('#project_description').set raw_text
+          find('#project_description').set markdown_raw_text
           find('#project_identifier').set 'test1'
           find('input[name=commit]').click
 
@@ -111,7 +113,7 @@ feature 'Project description', js: true do
           visit new_project_path
           select_format('#pwfmt-select-project_description', 'textile')
           find('#project_name').set 'test2'
-          find('#project_description').set raw_text
+          find('#project_description').set textile_raw_text
           find('#project_identifier').set 'test2'
           find('input[name=commit]').click
         end

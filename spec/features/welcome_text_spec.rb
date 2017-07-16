@@ -19,7 +19,7 @@ feature 'Welcome text', js: true do
         background do
           visit settings_path
           select_format('#pwfmt-select-settings_welcome_text', 'markdown')
-          find('#settings_welcome_text').set raw_text
+          find('#settings_welcome_text').set markdown_raw_text
           find('input[name=commit]').click
         end
         scenario 'view as markdown' do
@@ -34,6 +34,7 @@ feature 'Welcome text', js: true do
           background do
             visit settings_path
             select_format('#pwfmt-select-settings_welcome_text', 'textile')
+            find('#settings_welcome_text').set textile_raw_text
             find('input[name=commit]').click
           end
           scenario 'view as textile' do
@@ -50,7 +51,7 @@ feature 'Welcome text', js: true do
         background do
           visit settings_path
           select_format('#pwfmt-select-settings_welcome_text', 'textile')
-          find('#settings_welcome_text').set raw_text
+          find('#settings_welcome_text').set textile_raw_text
           find('input[name=commit]').click
         end
         scenario 'view as textile' do
@@ -65,6 +66,7 @@ feature 'Welcome text', js: true do
           background do
             visit settings_path
             select_format('#pwfmt-select-settings_welcome_text', 'markdown')
+            find('#settings_welcome_text').set markdown_raw_text
             find('input[name=commit]').click
           end
           scenario 'view as markdown' do
