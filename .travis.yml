@@ -1,16 +1,15 @@
+sudo: false
 language: ruby
 rvm:
-  - 1.9.3
-  - 2.0
-  - 2.1.5
-  - 2.2
+  - 2.3.4
 env:
-  - TARGET=redmine REDMINE_VERSION=2.6.2
-  - TARGET=plugin REDMINE_VERSION=2.6.2
-  - TARGET=redmine REDMINE_VERSION=3.0.0
-  - TARGET=plugin REDMINE_VERSION=3.0.0
+  - TARGET=redmine REDMINE_VERSION=3.3.4
+  - TARGET=plugin REDMINE_VERSION=3.3.4
+  - TARGET=redmine REDMINE_VERSION=3.4.2
+  - TARGET=plugin REDMINE_VERSION=3.4.2
 before_install: sh travis/before_install.sh
 script: sh travis/exec_test.sh
-matrix:
-  allow_failures:
-    - rvm: 2.2
+addons:
+  apt:
+    packages:
+    - cvs
