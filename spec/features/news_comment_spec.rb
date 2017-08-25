@@ -15,7 +15,7 @@ feature 'News comment', js: true do
       scenario "selected item of select box is #{format} when first visited" do
         visit_news
         find('a[href="#"]').click
-        expect(format_option('pwfmt-select-comment_comments', format).selected?).to be_true
+        expect(format_option('pwfmt-select-comment_comments', format).selected?).to be true
       end
       context 'when save as markdown' do
         background do

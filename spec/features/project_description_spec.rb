@@ -13,7 +13,7 @@ feature 'Project description', js: true do
       end
       scenario "selected item of select box is #{format} when first visited" do
         visit new_project_path
-        expect(format_option('pwfmt-select-project_description', format).selected?).to be_true
+        expect(format_option('pwfmt-select-project_description', format).selected?).to be true
       end
       context 'when save as markdown' do
         background do
@@ -34,7 +34,7 @@ feature 'Project description', js: true do
         end
         scenario 'selected item of select box is markdown' do
           visit settings_project_path('test')
-          expect(format_option('pwfmt-select-project_description', 'markdown').selected?).to be_true
+          expect(format_option('pwfmt-select-project_description', 'markdown').selected?).to be true
         end
         context 'when change format to textile' do
           background do
@@ -53,7 +53,7 @@ feature 'Project description', js: true do
           end
           scenario 'selected item of select box is textile' do
             visit settings_project_path('test')
-            expect(format_option('pwfmt-select-project_description', 'textile').selected?).to be_true
+            expect(format_option('pwfmt-select-project_description', 'textile').selected?).to be true
           end
         end
       end
@@ -76,7 +76,7 @@ feature 'Project description', js: true do
         end
         scenario 'selected item of select box is textile' do
           visit settings_project_path('test')
-          expect(format_option('pwfmt-select-project_description', 'textile').selected?).to be_true
+          expect(format_option('pwfmt-select-project_description', 'textile').selected?).to be true
         end
         context 'when change format to markdown' do
           background do
@@ -95,7 +95,7 @@ feature 'Project description', js: true do
           end
           scenario 'selected item of select box is markdown' do
             visit settings_project_path('test')
-            expect(format_option('pwfmt-select-project_description', 'markdown').selected?).to be_true
+            expect(format_option('pwfmt-select-project_description', 'markdown').selected?).to be true
           end
         end
       end

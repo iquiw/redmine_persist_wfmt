@@ -13,7 +13,7 @@ feature 'Welcome text', js: true do
       end
       scenario "selected item of select box is #{format} when first visited" do
         visit settings_path
-        expect(format_option('pwfmt-select-settings_welcome_text', format).selected?).to be_true
+        expect(format_option('pwfmt-select-settings_welcome_text', format).selected?).to be true
       end
       context 'when save as markdown' do
         background do
@@ -28,7 +28,7 @@ feature 'Welcome text', js: true do
         end
         scenario 'selected item of select box is markdown' do
           visit settings_path
-          expect(format_option('pwfmt-select-settings_welcome_text', 'markdown').selected?).to be_true
+          expect(format_option('pwfmt-select-settings_welcome_text', 'markdown').selected?).to be true
         end
         context 'when change format to textile' do
           background do
@@ -43,7 +43,7 @@ feature 'Welcome text', js: true do
           end
           scenario 'selected item of select box is textile' do
             visit settings_path
-            expect(format_option('pwfmt-select-settings_welcome_text', 'textile').selected?).to be_true
+            expect(format_option('pwfmt-select-settings_welcome_text', 'textile').selected?).to be true
           end
         end
       end
@@ -60,7 +60,7 @@ feature 'Welcome text', js: true do
         end
         scenario 'selected item of select box is textile' do
           visit settings_path
-          expect(format_option('pwfmt-select-settings_welcome_text', 'textile').selected?).to be_true
+          expect(format_option('pwfmt-select-settings_welcome_text', 'textile').selected?).to be true
         end
         context 'when change format to markdown' do
           background do
@@ -75,7 +75,7 @@ feature 'Welcome text', js: true do
           end
           scenario 'selected item of select box is markdown' do
             visit settings_path
-            expect(format_option('pwfmt-select-settings_welcome_text', 'markdown').selected?).to be_true
+            expect(format_option('pwfmt-select-settings_welcome_text', 'markdown').selected?).to be true
           end
         end
       end

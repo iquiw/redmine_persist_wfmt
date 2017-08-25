@@ -14,7 +14,7 @@ feature 'Issue description', js: true do
       end
       scenario "selected item of select box is #{format} when first visited" do
         visit new_project_issue_path(project_id: 'test')
-        expect(format_option('pwfmt-select-issue_description', format).selected?).to be_true
+        expect(format_option('pwfmt-select-issue_description', format).selected?).to be true
       end
       # scenario "preview as markdown" do
       #   visit new_project_issue_path(project_id: 'test')
@@ -47,7 +47,7 @@ feature 'Issue description', js: true do
           issue = Issue.all.first
           visit_issue(issue)
           open_issue_description_edit_area(issue)
-          expect(format_option('pwfmt-select-issue_description', 'markdown').selected?).to be_true
+          expect(format_option('pwfmt-select-issue_description', 'markdown').selected?).to be true
         end
         context 'when change format to textile' do
           background do
@@ -67,7 +67,7 @@ feature 'Issue description', js: true do
             issue = Issue.all.first
             visit_issue(issue)
             open_issue_description_edit_area(issue)
-            expect(format_option('pwfmt-select-issue_description', 'textile').selected?).to be_true
+            expect(format_option('pwfmt-select-issue_description', 'textile').selected?).to be true
           end
         end
       end
@@ -88,7 +88,7 @@ feature 'Issue description', js: true do
           issue = Issue.all.first
           visit_issue(issue)
           open_issue_description_edit_area(issue)
-          expect(format_option('pwfmt-select-issue_description', 'textile').selected?).to be_true
+          expect(format_option('pwfmt-select-issue_description', 'textile').selected?).to be true
         end
         context 'when change format to markdown' do
           background do
@@ -108,7 +108,7 @@ feature 'Issue description', js: true do
             issue = Issue.all.first
             visit_issue(issue)
             open_issue_description_edit_area(issue)
-            expect(format_option('pwfmt-select-issue_description', 'markdown').selected?).to be_true
+            expect(format_option('pwfmt-select-issue_description', 'markdown').selected?).to be true
           end
         end
       end

@@ -14,7 +14,7 @@ feature 'Wiki content', js: true do
       end
       scenario "selected item of select box is #{format} when first visited" do
         visit '/projects/test/wiki'
-        expect(format_option('pwfmt-select-content_text', format).selected?).to be_true
+        expect(format_option('pwfmt-select-content_text', format).selected?).to be true
       end
       context 'when save as markdown' do
         background do
@@ -30,7 +30,7 @@ feature 'Wiki content', js: true do
         scenario 'selected item of select box is markdown' do
           visit '/projects/test/wiki'
           find("a[accesskey='e']").click
-          expect(format_option('pwfmt-select-content_text', 'markdown').selected?).to be_true
+          expect(format_option('pwfmt-select-content_text', 'markdown').selected?).to be true
         end
         context 'when change format to textile' do
           background do
@@ -47,7 +47,7 @@ feature 'Wiki content', js: true do
           scenario 'selected item of select box is textile' do
             visit '/projects/test/wiki'
             find("a[accesskey='e']").click
-            expect(format_option('pwfmt-select-content_text', 'textile').selected?).to be_true
+            expect(format_option('pwfmt-select-content_text', 'textile').selected?).to be true
           end
           scenario 'view old version as markdown' do
             visit '/projects/test/wiki/Wiki/1'
@@ -69,7 +69,7 @@ feature 'Wiki content', js: true do
         scenario 'selected item of select box is textile' do
           visit '/projects/test/wiki'
           find("a[accesskey='e']").click
-          expect(format_option('pwfmt-select-content_text', 'textile').selected?).to be_true
+          expect(format_option('pwfmt-select-content_text', 'textile').selected?).to be true
         end
         context 'when change format to markdown' do
           background do
@@ -86,7 +86,7 @@ feature 'Wiki content', js: true do
           scenario 'selected item of select box is markdown' do
             visit '/projects/test/wiki'
             find("a[accesskey='e']").click
-            expect(format_option('pwfmt-select-content_text', 'markdown').selected?).to be_true
+            expect(format_option('pwfmt-select-content_text', 'markdown').selected?).to be true
           end
           scenario 'view old version as textile' do
             visit '/projects/test/wiki/Wiki/1'

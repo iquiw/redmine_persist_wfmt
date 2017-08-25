@@ -15,7 +15,7 @@ feature 'Message content', js: true do
       scenario "selected item of select box is #{format} when first visited" do
         board = Board.all.first
         visit new_board_message_path(board)
-        expect(format_option('pwfmt-select-message_content', format).selected?).to be_true
+        expect(format_option('pwfmt-select-message_content', format).selected?).to be true
       end
       context 'when save as markdown' do
         background do
@@ -34,7 +34,7 @@ feature 'Message content', js: true do
         scenario 'selected item of select box is markdown' do
           board = Board.all.first
           visit "/boards/#{board.id}/topics/#{board.messages.first.id}/edit"
-          expect(format_option('pwfmt-select-message_content', 'markdown').selected?).to be_true
+          expect(format_option('pwfmt-select-message_content', 'markdown').selected?).to be true
         end
         context 'when change format to textile' do
           background do
@@ -52,7 +52,7 @@ feature 'Message content', js: true do
           scenario 'selected item of select box is textile' do
             board = Board.all.first
             visit "/boards/#{board.id}/topics/#{board.messages.first.id}/edit"
-            expect(format_option('pwfmt-select-message_content', 'textile').selected?).to be_true
+            expect(format_option('pwfmt-select-message_content', 'textile').selected?).to be true
           end
         end
       end
@@ -73,7 +73,7 @@ feature 'Message content', js: true do
         scenario 'selected item of select box is textile' do
           board = Board.all.first
           visit "/boards/#{board.id}/topics/#{board.messages.first.id}/edit"
-          expect(format_option('pwfmt-select-message_content', 'textile').selected?).to be_true
+          expect(format_option('pwfmt-select-message_content', 'textile').selected?).to be true
         end
         context 'when change format to markdown' do
           background do
@@ -91,7 +91,7 @@ feature 'Message content', js: true do
           scenario 'selected item of select box is markdown' do
             board = Board.all.first
             visit "/boards/#{board.id}/topics/#{board.messages.first.id}/edit"
-            expect(format_option('pwfmt-select-message_content', 'markdown').selected?).to be_true
+            expect(format_option('pwfmt-select-message_content', 'markdown').selected?).to be true
           end
         end
       end

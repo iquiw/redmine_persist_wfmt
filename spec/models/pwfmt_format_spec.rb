@@ -9,9 +9,9 @@ describe PwfmtFormat do
     shared_examples_for 'format persistence' do
       subject { PwfmtFormat.all.first }
 
-      its(:target_id) { should eq doc.id }
-      its(:field) { should eq field }
-      its(:format) { should eq 'textile' }
+      it { is_expected.to have_attributes(:target_id => doc.id,
+                                          :field     => field,
+                                          :format    => 'textile') }
     end
 
     context 'when not exists' do

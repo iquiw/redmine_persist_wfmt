@@ -14,7 +14,7 @@ feature 'Document description', js: true do
       end
       scenario "selected item of select box is #{format} when first visited" do
         visit new_project_document_path(project_id: 'test')
-        expect(format_option('pwfmt-select-document_description', format).selected?).to be_true
+        expect(format_option('pwfmt-select-document_description', format).selected?).to be true
       end
       context 'when save as markdown' do
         background do
@@ -32,7 +32,7 @@ feature 'Document description', js: true do
         scenario 'selected item of select box is markdown' do
           document = Document.all.first
           visit edit_document_path(document)
-          expect(format_option('pwfmt-select-document_description', 'markdown').selected?).to be_true
+          expect(format_option('pwfmt-select-document_description', 'markdown').selected?).to be true
         end
         context 'when change format to textile' do
           background do
@@ -50,7 +50,7 @@ feature 'Document description', js: true do
           scenario 'selected item of select box is textile' do
             document = Document.all.first
             visit edit_document_path(document)
-            expect(format_option('pwfmt-select-document_description', 'textile').selected?).to be_true
+            expect(format_option('pwfmt-select-document_description', 'textile').selected?).to be true
           end
         end
       end
@@ -70,7 +70,7 @@ feature 'Document description', js: true do
         scenario 'selected item of select box is textile' do
           document = Document.all.first
           visit edit_document_path(document)
-          expect(format_option('pwfmt-select-document_description', 'textile').selected?).to be_true
+          expect(format_option('pwfmt-select-document_description', 'textile').selected?).to be true
         end
         context 'when change format to markdown' do
           background do
@@ -88,7 +88,7 @@ feature 'Document description', js: true do
           scenario 'selected item of select box is markdown' do
             document = Document.all.first
             visit edit_document_path(document)
-            expect(format_option('pwfmt-select-document_description', 'markdown').selected?).to be_true
+            expect(format_option('pwfmt-select-document_description', 'markdown').selected?).to be true
           end
         end
       end

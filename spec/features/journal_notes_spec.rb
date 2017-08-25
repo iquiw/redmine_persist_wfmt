@@ -25,7 +25,7 @@ feature 'Journal notes', js: true do
           scenario "selected item of select box is #{format} when first visited" do
             visit_issue(@issue)
             all("a[href='#{edit_issue_path(@issue)}']").first.click
-            expect(format_option('pwfmt-select-issue_notes', format).selected?).to be_true
+            expect(format_option('pwfmt-select-issue_notes', format).selected?).to be true
           end
           context 'when save as markdown' do
             background do
@@ -43,7 +43,7 @@ feature 'Journal notes', js: true do
               visit_issue(@issue)
               journal_id = @issue.journals.first.id
               find("#journal-#{journal_id}-notes").find("a[href='#']").click
-              expect(format_option("pwfmt-select-journal_#{journal_id}_notes", 'markdown').selected?).to be_true
+              expect(format_option("pwfmt-select-journal_#{journal_id}_notes", 'markdown').selected?).to be true
             end
             context 'when change format to textile' do
               background do
@@ -62,7 +62,7 @@ feature 'Journal notes', js: true do
                 visit_issue(@issue)
                 journal_id = @issue.journals.first.id
                 find("#journal-#{journal_id}-notes").find("a[href='#']").click
-                expect(format_option("pwfmt-select-journal_#{journal_id}_notes", 'textile').selected?).to be_true
+                expect(format_option("pwfmt-select-journal_#{journal_id}_notes", 'textile').selected?).to be true
               end
             end
           end
@@ -82,7 +82,7 @@ feature 'Journal notes', js: true do
               visit_issue(@issue)
               journal_id = @issue.journals.first.id
               find("#journal-#{journal_id}-notes").find("a[href='#']").click
-              expect(format_option("pwfmt-select-journal_#{journal_id}_notes", 'textile').selected?).to be_true
+              expect(format_option("pwfmt-select-journal_#{journal_id}_notes", 'textile').selected?).to be true
             end
             context 'when change format to markdown' do
               background do
@@ -101,7 +101,7 @@ feature 'Journal notes', js: true do
                 visit_issue(@issue)
                 journal_id = @issue.journals.first.id
                 find("#journal-#{journal_id}-notes").find("a[href='#']").click
-                expect(format_option("pwfmt-select-journal_#{journal_id}_notes", 'markdown').selected?).to be_true
+                expect(format_option("pwfmt-select-journal_#{journal_id}_notes", 'markdown').selected?).to be true
               end
             end
           end
