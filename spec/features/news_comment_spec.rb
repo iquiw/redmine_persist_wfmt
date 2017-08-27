@@ -14,13 +14,13 @@ feature 'News comment', js: true do
       end
       scenario "selected item of select box is #{format} when first visited" do
         visit_news
-        find('a[href="#"]').click
+        find('#content a[href="#"]').click
         expect(format_option('pwfmt-select-comment_comments', format).selected?).to be true
       end
       context 'when save as markdown' do
         background do
           visit_news
-          find('a[href="#"]').click
+          find('#content a[href="#"]').click
           select_format('#pwfmt-select-comment_comments', 'markdown')
           find('#comment_comments').set markdown_raw_text
           find('input[name=commit]').click
@@ -33,7 +33,7 @@ feature 'News comment', js: true do
       context 'when save as textile' do
         background do
           visit_news
-          find('a[href="#"]').click
+          find('#content a[href="#"]').click
           select_format('#pwfmt-select-comment_comments', 'textile')
           find('#comment_comments').set textile_raw_text
           find('input[name=commit]').click
@@ -47,14 +47,14 @@ feature 'News comment', js: true do
         background do
           # markdown
           visit_news
-          find('a[href="#"]').click
+          find('#content a[href="#"]').click
           select_format('#pwfmt-select-comment_comments', 'markdown')
           find('#comment_comments').set markdown_raw_text
           find('input[name=commit]').click
 
           # textile
           visit_news
-          find('a[href="#"]').click
+          find('#content a[href="#"]').click
           select_format('#pwfmt-select-comment_comments', 'textile')
           find('#comment_comments').set textile_raw_text
           find('input[name=commit]').click

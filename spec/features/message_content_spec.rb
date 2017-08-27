@@ -106,7 +106,7 @@ feature 'Message content', js: true do
 
           # markdown reply
           visit board_message_path(board.messages.first, board_id: board)
-          find('a[href="#"]').click
+          find('#content a[href="#"]').click
           select_format('#pwfmt-select-message_content', 'markdown')
           find('#message_subject').set 'test'
           find('#message_content').set markdown_raw_text
@@ -114,7 +114,7 @@ feature 'Message content', js: true do
 
           # textile reply
           visit board_message_path(board.messages.first, board_id: board)
-          find('a[href="#"]').click
+          find('#content a[href="#"]').click
           select_format('#pwfmt-select-message_content', 'textile')
           find('#message_subject').set 'test'
           find('#message_content').set textile_raw_text
