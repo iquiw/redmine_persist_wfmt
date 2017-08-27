@@ -42,14 +42,14 @@ feature 'Journal notes', js: true do
             scenario 'selected item of select box is markdown' do
               visit_issue(@issue)
               journal_id = @issue.journals.first.id
-              find("#journal-#{journal_id}-notes").find("a[href='#']").click
+              find("#journal-#{journal_id}-notes").find("a.icon-edit").click
               expect(format_option("pwfmt-select-journal_#{journal_id}_notes", 'markdown').selected?).to be true
             end
             context 'when change format to textile' do
               background do
                 visit_issue(@issue)
                 journal_id = @issue.journals.first.id
-                find("#journal-#{journal_id}-notes").find("a[href='#']").click
+                find("#journal-#{journal_id}-notes").find("a.icon-edit").click
                 select_format("#pwfmt-select-journal_#{journal_id}_notes", 'textile')
                 find("#journal_#{journal_id}_notes").set textile_raw_text
                 find("#journal-#{journal_id}-form").find('input[name=commit]').click
@@ -61,7 +61,7 @@ feature 'Journal notes', js: true do
               scenario 'selected item of select box is textile' do
                 visit_issue(@issue)
                 journal_id = @issue.journals.first.id
-                find("#journal-#{journal_id}-notes").find("a[href='#']").click
+                find("#journal-#{journal_id}-notes").find("a.icon-edit").click
                 expect(format_option("pwfmt-select-journal_#{journal_id}_notes", 'textile').selected?).to be true
               end
             end
@@ -81,14 +81,14 @@ feature 'Journal notes', js: true do
             scenario 'selected item of select box is textile' do
               visit_issue(@issue)
               journal_id = @issue.journals.first.id
-              find("#journal-#{journal_id}-notes").find("a[href='#']").click
+              find("#journal-#{journal_id}-notes").find("a.icon-edit").click
               expect(format_option("pwfmt-select-journal_#{journal_id}_notes", 'textile').selected?).to be true
             end
             context 'when change format to markdown' do
               background do
                 visit_issue(@issue)
                 journal_id = @issue.journals.first.id
-                find("#journal-#{journal_id}-notes").find("a[href='#']").click
+                find("#journal-#{journal_id}-notes").find("a.icon-edit").click
                 select_format("#pwfmt-select-journal_#{journal_id}_notes", 'markdown')
                 find("#journal_#{journal_id}_notes").set markdown_raw_text
                 find("#journal-#{journal_id}-form").find('input[name=commit]').click
@@ -100,7 +100,7 @@ feature 'Journal notes', js: true do
               scenario 'selected item of select box is markdown' do
                 visit_issue(@issue)
                 journal_id = @issue.journals.first.id
-                find("#journal-#{journal_id}-notes").find("a[href='#']").click
+                find("#journal-#{journal_id}-notes").find("a.icon-edit").click
                 expect(format_option("pwfmt-select-journal_#{journal_id}_notes", 'markdown').selected?).to be true
               end
             end
